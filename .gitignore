@@ -1,0 +1,3 @@
+*.pyc
+db.sqlite3
+server/recordata.egg-info

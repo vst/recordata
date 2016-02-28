@@ -1,0 +1,26 @@
+<h3>Records</h3>
+
+<div class="row">
+  <div class="col-md-4">
+    <table class="table table-bordered table-condensed">
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |item|}}
+          <tr class={{ if item.isNew "warning" }} {{ action "select" item }}>
+            <td>{{ item.key }}</td>
+            <td>{{ item.value }}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+    <p>
+      <a {{action "new"}} class="btn btn-success btn-xs">New</a>
+    </p>
+  </div>
+</div>

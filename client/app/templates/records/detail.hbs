@@ -1,0 +1,38 @@
+{{link-to "All Records" "records"}}
+
+{{#if errors }}
+  <div class="text-error">
+    {{#each errors as |error| }}
+      <p><strong>{{error.title}}</strong> {{error.detail}}</p>
+    {{/each}}
+  </div>
+{{/if}}
+
+<form class="inline-form">
+  <div class="row">
+    <div class="col-md-4">
+      <fieldset class="form-group">
+        <label>Key</label>
+        {{input value=model.key class="form-control"}}
+      </fieldset>
+    </div>
+
+    <div class="col-md-4">
+      <fieldset class="form-group">
+        <label>Value</label>
+        {{input value=model.value class="form-control"}}
+      </fieldset>
+    </div>
+
+    <div class="col-md-4">
+      <label>&nbsp;</label>
+      <div class="btn-group btn-block" role="group">
+        <button type="button" class="btn btn-success" {{ action "save" }}>Save</button>
+        <button type="button" class="btn btn-warning" {{ action "cancel" }}>Cancel</button>
+        {{#if (not model.isNew) }}
+          <button type="button" class="btn btn-danger" {{ action "delete" }}>Delete</button>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</form>
